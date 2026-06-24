@@ -22,6 +22,7 @@ class Corpus:
         self.sentence_word_tree = {}
         self.word_sentence_index = {}
 
+
     def load_words(self, files):
 
         self.file_ids = {}

@@ -87,6 +87,62 @@ def word_frequency():
 
     return jsonify(result)
 
+@app.route("/api/character-buckets")
+def character_buckets():
+
+    result = {}
+
+    for count in range(1, 15):
+
+        bucket = CORPS.dictionary.build_character_bucket(
+            count
+        )
+
+        frequencies = {}
+
+        for file_words in bucket.values():
+
+            for word in file_words.values():
+
+                frequencies[word] = (
+                    frequencies.get(word, 0)
+                    + 1
+                )
+
+        result[count] = sorted(
+            frequencies.items(),
+            key=lambda x: x[1],
+            reverse=True
+        )
+
+    return jsonify(result)
+
+@app.route("/api/character-bucket/<int:count>")
+def character_bucket(count):
+
+    bucket = CORPS.dictionary.build_character_bucket(
+        count
+    )
+
+    frequency = {}
+
+    for file_words in bucket.values():
+
+        for word in file_words.values():
+
+            frequency[word] = (
+                frequency.get(word, 0)
+                + 1
+            )
+
+    result = sorted(
+        frequency.items(),
+        key=lambda item: item[1],
+        reverse=True
+    )
+
+    return jsonify(result)
+
 if __name__ == "__main__":
     app.run(
         debug=True,
