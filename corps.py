@@ -13,12 +13,30 @@ class Corps:
 
         return self.corpus.load_words(files)
 
-    def get_file_sentences(
-     self,
-     file_name
-    ):
+    def get_file_sentences(self, file_name):
 
         return self.corpus.sentences[file_name]
+
+    def get_file_original(self, filename):
+
+        return self.corpus.files[filename]
+
+    def get_file_extracted(self, filename):
+
+        return self.corpus.sentences[filename]
+    
+    def get_word_frequency(self):
+
+        frequency = {}
+
+        for word, files in self.corpus.word_index.items():
+
+            frequency[word] = sum(
+                len(positions)
+                for positions in files.values()
+            )
+
+        return frequency
 
     # corps.py
 

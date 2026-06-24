@@ -322,7 +322,6 @@ class Corpus:
 
      return index
 
-
     def build_sentence_word_tree(self):
 
      separated = self.separated_words

@@ -10,20 +10,31 @@ def build_sentence_text(corpus):
             corpus.sentence_index[file_name].items()
         ):
 
-            words = []
+            original_words = []
+            extracted_words = []
 
             for position in range(
                 sentence["start"],
                 sentence["end"] + 1
             ):
 
-                words.extend(
+                original_words.append(
+                    corpus.files[file_name][position]
+                )
+
+                extracted_words.extend(
                     corpus.extracted_words[file_name][position]
                 )
 
-            index[file_name][sentence_key] = (
-                " ".join(words)
-            )
+            index[file_name][sentence_key] = {
+
+                "original":
+                    " ".join(original_words),
+
+                "extracted":
+                    " ".join(extracted_words)
+
+            }
 
     corpus.sentences = index
 

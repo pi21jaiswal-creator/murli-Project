@@ -72,6 +72,21 @@ def get_file_content(filename):
         "sentences": sentences
     })
 
+@app.route("/analysis")
+def analysis_page():
+    return render_template("/analysis.html")
+
+@app.route("/api/word-frequency")
+def word_frequency():
+
+    result = sorted(
+        CORPS.get_word_frequency().items(),
+        key=lambda item: item[1],
+        reverse=True
+    )
+
+    return jsonify(result)
+
 if __name__ == "__main__":
     app.run(
         debug=True,
