@@ -26,5 +26,27 @@ def get_files():
         "files": files
     })
 
+@app.route("/files/<filename>")
+def get_file_content(filename):
+
+    directory_path = (
+        r'G:\My Drive\Obsidian Daily Murli\Daily Murli'
+    )
+
+    file_path = os.path.join(
+        directory_path,
+        filename
+    )
+
+    with open(
+        file_path,
+        "r",
+        encoding="utf-8"
+    ) as file:
+
+        content = file.read()
+
+    return content
+
 if __name__ == "__main__":
     app.run(debug=True, use_reloader=False)
