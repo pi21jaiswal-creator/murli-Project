@@ -1,15 +1,7 @@
-from dataclasses import dataclass
-#from importlib.resources import files
 from pathlib import Path
 import regex
 
-@dataclass(frozen=True)
-class Position:
-
-    file_id: int
-    sentence_key: int
-    position: int
-
+from models import Position
 
 class Corpus:
 
@@ -23,6 +15,8 @@ class Corpus:
         self.word_index = {}
         self.separated_words = {}
         self.extracted_words = {}
+
+        self.sentences = {}
 
         self.sentence_index = {}
         self.sentence_word_tree = {}
@@ -260,7 +254,7 @@ class Corpus:
         return index
 
     def build_word_sentence_index(self):
-
+     
      index = {}
 
      file_id_to_name = {}
@@ -328,6 +322,7 @@ class Corpus:
 
      return index
 
+
     def build_sentence_word_tree(self):
 
      separated = self.separated_words
@@ -376,18 +371,4 @@ class Corpus:
 
      return index
 
-    def build_corpus(self):
-
-     self.build_word_index()
-
-     self.build_separated_word_index()
-
-     self.build_extracted_word_index()
-
-     self.build_sentence_index()
-
-     self.build_word_sentence_index()
-
-     self.build_sentence_word_tree()
-
-     return self
+    
