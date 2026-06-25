@@ -1,22 +1,15 @@
 <!DOCTYPE html>
-
 <html>
-
 <head>
-
     <title>Murli Files</title>
-
     <link
         rel="stylesheet"
         href="{{ url_for('static', filename='style.css') }}"
     >
-
 </head>
-
 <body>
     
     <div class="top-menu">
-        <a href="/">Files</a>
         <a href="/analysis">Analysis</a>
     </div>
 
@@ -25,29 +18,18 @@
     <button onclick="loadFiles()">
         Load Files
     </button>
-
     <p id="count"></p>
-    <div class="top-menu">
-        <a href="/">Files</a>
-        <a href="/analysis">Analysis</a>
-    </div>
+
     <div class="container">
-
         <div class="left-panel">
-
             <ul id="fileList"></ul>
-
         </div>
-
         <div class="right-panel">
-
             <h3 id="fileTitle">
                 Select a file
             </h3>
-
             <!-- View Buttons -->
             <div class="view-buttons">
-
                 <button
                     id="originalBtn"
                     class="active"
@@ -55,31 +37,21 @@
                 >
                     Original
                 </button>
-
                 <button
                     id="extractedBtn"
                     onclick="showExtracted()"
                 >
                     Extracted
                 </button>
-
             </div>
-
             <div id="content">
-
                 File content will appear here...
-
             </div>
-
         </div>
-
     </div>
-
-    <script
+<script
     type="module"
     src="/static/main.js">
 </script>
-
 </body>
-
 </html>

@@ -1,16 +1,8 @@
 import { loadFiles } from './fileList.js';
+import { showOriginal, showExtracted } from './fileViewer.js';
 
-import {
-showOriginal,
-showExtracted
-}
-from './fileViewer.js';
+window.loadFiles = loadFiles;
 
-window.loadFiles =
-loadFiles;
+window.showOriginal = showOriginal;
 
-window.showOriginal =
-showOriginal;
-
-window.showExtracted =
-showExtracted;
+window.showExtracted = showExtracted;

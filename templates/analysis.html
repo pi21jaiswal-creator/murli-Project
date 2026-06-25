@@ -1,41 +1,137 @@
 <!DOCTYPE html>
+<html lang="en">
 
-<html>
 <head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
 
     <title>Word Analysis</title>
 
     <link
         rel="stylesheet"
-        href="{{ url_for('static', filename='analysis.css') }}"
+        href="{{ url_for('static', filename='analysis/analysis.css') }}"
     >
+
+    <script
+        defer
+        src="{{ url_for('static', filename='analysis/cards.js') }}"
+    ></script>
+
+    <script
+        defer
+        src="{{ url_for('static', filename='analysis/render.js') }}"
+    ></script>
+
+    <script
+        defer
+        src="{{ url_for('static', filename='analysis/wordManager.js') }}"
+    ></script>
+
+    <script
+        defer
+        src="{{ url_for('static', filename='analysis/events.js') }}"
+    ></script>
+
+    <script
+        defer
+        src="{{ url_for('static', filename='analysis/analysis.js') }}"
+    ></script>
 
 </head>
 
 <body>
+<header>
+    <div class="container">
+        <h1>📖 Word Analysis</h1>
 
-<h1>Word Analysis</h1>
+        <div class="toolbar">
+            <button onclick="loadFrequency()">
+                Load Statistics
+            </button>
+            <input
+                id="searchBox"
+                type="text"
+                placeholder="Search word..."
+            >
+        </div>
+        <div id="bucketButtons"></div>  
+    </div>
 
-<button onclick="loadFrequency()">
-    Load Statistics
-</button>
+</header>
 
-<div id="bucketButtons"></div>
+    <main>
 
-<table id="wordTable">
+        <!-- Left Side -->
 
-    <thead>
-        <tr>
-            <th>Count</th>
-            <th>Word</th>
-        </tr>
-    </thead>
+        <section class="mainPanel">
 
-    <tbody></tbody>
+            <div id="cardContainer">
 
-</table>
+                <!-- Count Cards will appear here -->
 
-<script src="{{ url_for('static', filename='analysis.js') }}"></script>
+            </div>
+
+        </section>
+
+        <!-- Right Side -->
+
+        <aside class="sidePanel">
+
+            <div class="bucket">
+
+                <h3>🗑 Excluded</h3>
+
+                <div
+                    id="excludedBucket"
+                    class="drop-zone"
+                ></div>
+
+            </div>
+
+            <div class="bucket">
+
+                <h3>🧘 Yoga</h3>
+
+                <div
+                    id="yogaBucket"
+                    class="drop-zone"
+                ></div>
+
+            </div>
+
+            <div class="bucket">
+
+                <h3>📚 Knowledge</h3>
+
+                <div
+                    id="knowledgeBucket"
+                    class="drop-zone"
+                ></div>
+
+            </div>
+
+            <div class="bucket">
+
+                <h3>⭐ Favorites</h3>
+
+                <div
+                    id="favoriteBucket"
+                    class="drop-zone"
+                ></div>
+
+            </div>
+
+        </aside>
+
+    </main>
+
+</div>
 
 </body>
+
 </html>
