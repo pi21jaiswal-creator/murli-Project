@@ -172,3 +172,92 @@ function dragEnd(
 {
 
 }
+
+// ==========================================
+// FREQUENCY NAVIGATOR
+// ==========================================
+
+function bindFrequencyNavigator(
+    button,
+    navigator
+)
+{
+    // Open / Close
+
+    button.addEventListener(
+
+        "click",
+
+        event => {
+
+            event.stopPropagation();
+
+            App.ui.showFrequencyNavigator =
+                !App.ui.showFrequencyNavigator;
+
+            refresh();
+
+        }
+
+    );
+
+
+
+    // Select Frequency
+
+   navigator.querySelectorAll(
+    ".frequency-card"
+)
+.forEach(card => {
+
+    card.addEventListener(
+
+        "click",
+
+        event => {
+
+            event.stopPropagation();
+
+            App.selectedFrequency =
+                Number(
+                    card.dataset.frequency
+                );
+
+            App.ui.showFrequencyNavigator =
+                false;
+
+            refresh();
+
+        }
+
+    );
+
+});
+
+}
+
+
+
+// ==========================================
+// CLOSE NAVIGATOR
+// ==========================================
+
+document.addEventListener(
+
+    "click",
+
+    () => {
+
+        if (
+            App.ui.showFrequencyNavigator
+        )
+        {
+            App.ui.showFrequencyNavigator =
+                false;
+
+            refresh();
+        }
+
+    }
+
+);

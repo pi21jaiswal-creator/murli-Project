@@ -48,23 +48,27 @@ function renderCards()
     const grouped =
         App.groupedWords;
 
-    Object.keys(grouped)
-        .sort((a, b) => b - a)
-        .forEach(count => {
+    if (
+        !App.selectedFrequency ||
+        !grouped[App.selectedFrequency]
+    )
+    {
+        return;
+    }
 
-            container.appendChild(
+    container.appendChild(
 
-                renderCountCard(
+        renderCountCard(
 
-                    Number(count),
+            App.selectedFrequency,
 
-                    grouped[count]
+            grouped[
+                App.selectedFrequency
+            ]
 
-                )
+        )
 
-            );
-
-        });
+    );
 }
 
 

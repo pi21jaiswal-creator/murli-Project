@@ -8,6 +8,8 @@ const App = {
 
     currentWord: null,
 
+    selectedFrequency: null,
+
     selectedWords: new Set(),
 
     pinnedWords: new Set(),
@@ -26,7 +28,13 @@ const App = {
 
         selectedBucket: null,
 
-        contextMenu: null
+        contextMenu: null,
+
+        // Frequency Navigator
+
+        showFrequencyNavigator: false,
+
+        hoveredFrequency: null
 
     }
 
@@ -62,9 +70,30 @@ async function loadBucket(characterCount)
     App.groupedWords =
         grouped;
 
+    // ---------------------------------
+    // Select highest frequency by default
+    // ---------------------------------
+
+    const frequencies =
+        Object.keys(grouped)
+            .map(Number)
+            .sort((a, b) => b - a);
+
+    App.selectedFrequency =
+        frequencies.length > 0
+            ? frequencies[0]
+            : null;
+
     refresh();
 }
 
+function loadFrequency()
+{
+    const characterCount =
+        App.currentCharacterCount || 10;
+
+    loadBucket(characterCount);
+}
 
 function buildButtons()
 {
