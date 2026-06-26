@@ -50,5 +50,6 @@ class Corps:
         self.frequency.build_normalized_frequency(self.corpus)
         self.frequency.build_tfidf(self.corpus)
         self.frequency.build_normalized_tfidf(self.corpus)
-        
+        self.corpus.build_documents()
+
         return self

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Elasticsearch Documents</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="top-menu">
+        <a href="/">Home</a>
+        <a href="/analysis">Analysis</a>
+    </div>
+
+    <h1>Elasticsearch Documents</h1>
+
+    <button id="refreshBtn">Refresh Documents</button>
+    <p id="status">Click Refresh to load documents from Elasticsearch.</p>
+
+    <div class="elastic-results">
+        <div id="documentsContainer"></div>
+    </div>
+
+    <script type="module" src="{{ url_for('static', filename='elastic.js') }}"></script>
+</body>
+</html>

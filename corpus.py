@@ -22,6 +22,7 @@ class Corpus:
         self.sentence_word_tree = {}
         self.word_sentence_index = {}
 
+        self.documents = []
 
     def load_words(self, files):
 
@@ -371,4 +372,46 @@ class Corpus:
 
      return index
 
-    
+    def build_documents(self):
+
+        documents = []
+
+        for file_name, sentences in self.sentence_index.items():
+
+            for sentence in sentences.values():
+
+                start = sentence["start"]
+                end = sentence["end"]
+
+                original_words = []
+                normalized_words = []
+
+                for position in range(start, end + 1):
+
+                    # Original word exactly as in the file
+                    original_words.append(
+                        self.files[file_name][position]
+                    )
+
+                    # Clean searchable word(s)
+                    normalized_words.extend(
+                        self.extracted_words[file_name][position]
+                    )
+
+                documents.append({
+
+                    "file_name": file_name,
+
+                    "original_sentence": " ".join(
+                        original_words
+                    ),
+
+                    "sentence_start": start,
+
+                    "sentence_end": end,
+
+                    "normalized_words": normalized_words
+
+                })
+       
+        return documents
