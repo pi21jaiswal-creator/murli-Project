@@ -1,0 +1,5 @@
+{
+  "summary":  "Architectural Layers Analysis for the Daily Murli Project. Identifies the Presentation, Communication, Server, Logic, and Data layers with a detailed breakdown of files, purposes, responsibilities, dependencies, calls, and diagrams.",
+  "updatedAt":  "2026-06-27T06:52:36.289744700Z",
+  "userFacing":  true
+}

@@ -1,0 +1,5 @@
+{
+  "summary":  "Dynamic lifecycle-oriented analysis of backend and frontend objects, treating them as living entities. Details Birth, Initialization, Ownership, Transformations, Interactions, Serialization/Deserialization, UI Transfer/Representation, User Updates, and End of Lifecycle. Includes a unified system lifecycle diagram.",
+  "updatedAt":  "2026-06-26T17:36:27.190800400Z",
+  "userFacing":  true
+}

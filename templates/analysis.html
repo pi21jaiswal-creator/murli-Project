@@ -1,135 +1,230 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Avyakt Murli - Word Analysis</title>
+  
+  <!-- Modern Premium Book & Manuscript Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800&family=Lora:ital,wght@0,400;0,500;0,600;1,400&family=Playfair+Display:ital,wght@0,600;0,700;1,400&family=Outfit:wght@400;500;600&display=swap" rel="stylesheet">
+  
+  <!-- Individual Stylesheets -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/variables.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/reset.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/layout.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/header.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/sidebar.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/content.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/cards.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/buttons.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/decorations.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/footer.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/responsive.css') }}">
+  
+  <!-- Analysis Page Stylesheet Override (Adding Theme Cohesion) -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='analysis/analysis.css') }}">
 
-    <meta charset="UTF-8">
+  <style>
+    /* Styling adjustments to blend analysis.css with variables.css manuscript tokens */
+    body {
+      background-color: var(--bg-primary) !important;
+      color: var(--text-primary) !important;
+      font-family: var(--font-sans) !important;
+    }
+    
+    .app-sidebar {
+      background-color: var(--bg-secondary) !important;
+      border-right: 1px solid var(--border-color) !important;
+      padding: var(--space-md);
+    }
+    
+    .bucket {
+      background-color: var(--bg-tertiary) !important;
+      border: 1px solid var(--border-color) !important;
+      border-radius: var(--radius-md) !important;
+      margin-bottom: var(--space-md) !important;
+      padding: var(--space-sm) var(--space-md) !important;
+      box-shadow: var(--shadow-sm) !important;
+    }
+    
+    .bucket h3 {
+      font-family: var(--font-serif) !important;
+      color: var(--color-maroon) !important;
+      border-bottom: 1px solid var(--border-color);
+      padding-bottom: var(--space-xs);
+      font-size: var(--font-sm) !important;
+    }
+    
+    .drop-zone {
+      min-height: 80px !important;
+      background: rgba(250, 246, 240, 0.5) !important;
+      border: 1px dashed var(--border-color) !important;
+      border-radius: var(--radius-sm) !important;
+      margin-top: var(--space-xs) !important;
+      padding: var(--space-xs) !important;
+    }
 
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    >
+    .mainPanel {
+      padding: 0 !important;
+      background: transparent !important;
+    }
 
-    <title>Word Analysis</title>
+    /* Word Card Styling Override to match manuscript theme */
+    .word-card {
+      background-color: var(--bg-tertiary) !important;
+      border: 1px solid var(--border-color) !important;
+      border-radius: var(--radius-sm) !important;
+      padding: var(--space-sm) !important;
+      box-shadow: var(--shadow-sm) !important;
+      font-family: var(--font-body) !important;
+      color: var(--text-primary) !important;
+    }
 
-    <link
-        rel="stylesheet"
-        href="{{ url_for('static', filename='analysis/analysis.css') }}"
-    >
+    .word-card h4 {
+      font-family: var(--font-serif) !important;
+      color: var(--color-maroon) !important;
+    }
 
-    <script
-        defer
-        src="{{ url_for('static', filename='analysis/cards.js') }}"
-    ></script>
+    .toolbar button {
+      background: var(--grad-maroon) !important;
+      color: var(--bg-primary) !important;
+      border: 1px solid var(--color-gold) !important;
+      border-radius: var(--radius-sm) !important;
+      font-family: var(--font-sans) !important;
+      font-weight: 500 !important;
+      padding: var(--space-xs) var(--space-lg) !important;
+      cursor: pointer !important;
+      transition: all var(--trans-fast) !important;
+    }
+    
+    .toolbar button:hover {
+      background: var(--color-maroon-hover) !important;
+      transform: translateY(-1px);
+    }
 
-    <script
-        defer
-        src="{{ url_for('static', filename='analysis/render.js') }}"
-    ></script>
+    .toolbar input {
+      border: 1px solid var(--border-color) !important;
+      background-color: var(--bg-tertiary) !important;
+      color: var(--text-primary) !important;
+      border-radius: var(--radius-sm) !important;
+      padding: 8px 12px !important;
+      font-family: var(--font-sans) !important;
+    }
+  </style>
 
-    <script
-        defer
-        src="{{ url_for('static', filename='analysis/wordManager.js') }}"
-    ></script>
-
-    <script
-        defer
-        src="{{ url_for('static', filename='analysis/events.js') }}"
-    ></script>
-
-    <script
-        defer
-        src="{{ url_for('static', filename='analysis/analysis.js') }}"
-    ></script>
-
+  <script defer src="{{ url_for('static', filename='analysis/cards.js') }}"></script>
+  <script defer src="{{ url_for('static', filename='analysis/render.js') }}"></script>
+  <script defer src="{{ url_for('static', filename='analysis/wordManager.js') }}"></script>
+  <script defer src="{{ url_for('static', filename='analysis/events.js') }}"></script>
+  <script defer src="{{ url_for('static', filename='analysis/analysis.js') }}"></script>
 </head>
-
 <body>
-<header>
-    <div class="container">
-        <h1>📖 Word Analysis</h1>
 
-        <div class="toolbar">
-            <button onclick="loadFrequency()">
-                Load Statistics
-            </button>
-            <input
-                id="searchBox"
-                type="text"
-                placeholder="Search word..."
-            >
+  <!-- Main Application Container -->
+  <div class="app-container">
+    
+    <!-- Hero Header Section -->
+    <header class="app-header">
+      <!-- Sunrise Sky & Cloud Layers -->
+      <div class="header-meditation-bg">
+        <div class="sunrise-sky"></div>
+        <div class="cloud-layer cloud-1"></div>
+        <div class="cloud-layer cloud-2"></div>
+      </div>
+      
+      <!-- Divine Center Light (Supreme Soul) -->
+      <div class="supreme-soul-light" title="Shiva - Supreme Soul"></div>
+      
+      <!-- Logo Area -->
+      <div class="logo-container">
+        <img src="{{ url_for('static', filename='assets/logo.svg') }}" alt="Avyakt Murli Logo" class="logo-icon">
+        <div class="logo-title-group">
+          <h1 class="logo-title">अव्यक्त मुरली</h1>
+          <span class="logo-subtitle">Word Analysis &bull; Brahma Kumaris</span>
         </div>
-        <div id="bucketButtons"></div>  
-    </div>
+      </div>
+      
+      <!-- Main Application Navigation Menu -->
+      <nav class="header-nav" style="display: flex; gap: var(--space-md); align-items: center; z-index: var(--z-flat); margin-left: auto; margin-right: var(--space-lg);">
+        <a href="/" style="font-family: var(--font-sans); color: var(--color-maroon); text-decoration: none; font-weight: 500; font-size: var(--font-sm); padding: 6px 12px; border-radius: var(--radius-md); transition: all var(--trans-fast);">← Home</a>
+        <a href="/elastic" style="font-family: var(--font-sans); color: var(--color-maroon); text-decoration: none; font-weight: 500; font-size: var(--font-sm); padding: 6px 12px; border-radius: var(--radius-md); transition: all var(--trans-fast);">Elastic Search</a>
+      </nav>
+      
+      <!-- Om Shanti Spiritual Badge -->
+      <div class="om-shanti-badge">
+        <span>Om Shanti</span>
+      </div>
+    </header>
 
-</header>
+    <!-- App Body (Sidebar containing Drop Zones + Content Panel containing Cards) -->
+    <div class="app-body">
+      
+      <!-- Sidebar containing Drag-and-Drop Buckets -->
+      <aside class="app-sidebar" id="app-sidebar">
+        <h2 class="sidebar-section-title" style="margin-bottom: var(--space-md);">Spiritual Buckets</h2>
+        
+        <div class="bucket">
+          <h3>🗑 Excluded</h3>
+          <div id="excludedBucket" class="drop-zone"></div>
+        </div>
 
-    <main>
+        <div class="bucket">
+          <h3>🧘 Yoga</h3>
+          <div id="yogaBucket" class="drop-zone"></div>
+        </div>
 
-        <!-- Left Side -->
+        <div class="bucket">
+          <h3>📚 Knowledge</h3>
+          <div id="knowledgeBucket" class="drop-zone"></div>
+        </div>
 
-        <section class="mainPanel">
+        <div class="bucket">
+          <h3>⭐ Favorites</h3>
+          <div id="favoriteBucket" class="drop-zone"></div>
+        </div>
+      </aside>
 
-            <div id="cardContainer">
+      <!-- Main Reading Content Area containing Word Analytics -->
+      <main class="app-content">
+        <!-- Ambient Glowing Decoration -->
+        <div class="glow-ambience glow-amber"></div>
 
-                <!-- Count Cards will appear here -->
+        <!-- Sacred Content Corner Frames -->
+        <div class="sacred-frame">
+          <div class="corner-decorator corner-top-left"></div>
+          <div class="corner-decorator corner-top-right"></div>
+          <div class="corner-decorator corner-bottom-left"></div>
+          <div class="corner-decorator corner-bottom-right"></div>
+        </div>
 
+        <!-- Toolbar controls -->
+        <div class="content-toolbar">
+          <h2 class="toolbar-title" id="toolbar-title">Word Frequency Statistics</h2>
+          
+          <div class="toolbar-controls" style="display: flex; gap: var(--space-sm); align-items: center;">
+            <input id="searchBox" type="text" placeholder="Search word..." aria-label="Search words">
+            <button onclick="loadFrequency()">Load Statistics</button>
+          </div>
+        </div>
+
+        <!-- Display area for character bucket filter buttons -->
+        <div id="bucketButtons" style="padding: 10px var(--space-2xl) 0; display: flex; gap: 8px; flex-wrap: wrap;"></div>
+
+        <!-- Scrollable cards display area -->
+        <div class="content-viewport" id="content-viewport" style="padding-top: var(--space-md);">
+          <section class="mainPanel">
+            <div id="cardContainer" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 15px;">
+              <!-- Count Cards will appear here -->
             </div>
+          </section>
+        </div>
 
-        </section>
+      </main>
 
-        <!-- Right Side -->
-
-        <aside class="sidePanel">
-
-            <div class="bucket">
-
-                <h3>🗑 Excluded</h3>
-
-                <div
-                    id="excludedBucket"
-                    class="drop-zone"
-                ></div>
-
-            </div>
-
-            <div class="bucket">
-
-                <h3>🧘 Yoga</h3>
-
-                <div
-                    id="yogaBucket"
-                    class="drop-zone"
-                ></div>
-
-            </div>
-
-            <div class="bucket">
-
-                <h3>📚 Knowledge</h3>
-
-                <div
-                    id="knowledgeBucket"
-                    class="drop-zone"
-                ></div>
-
-            </div>
-
-            <div class="bucket">
-
-                <h3>⭐ Favorites</h3>
-
-                <div
-                    id="favoriteBucket"
-                    class="drop-zone"
-                ></div>
-
-            </div>
-
-        </aside>
-
-    </main>
+    </div> <!-- Close app-body -->
+  </div> <!-- Close app-container -->
 
 </body>
-
 </html>

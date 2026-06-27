@@ -1,0 +1,5 @@
+{
+  "summary":  "UI Link Map artifact for the Daily Murli Project. Traces every visible UI component from HTML element, CSS files, Client JavaScript, API routing, server controller, data model, to physical storage.",
+  "updatedAt":  "2026-06-27T06:52:58.565260800Z",
+  "userFacing":  true
+}

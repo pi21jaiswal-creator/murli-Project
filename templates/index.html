@@ -1,57 +1,166 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Murli Files</title>
-    <link
-        rel="stylesheet"
-        href="{{ url_for('static', filename='style.css') }}"
-    >
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Avyakt Murli - Morning Nectar of Peace</title>
+  
+  <!-- Modern Premium Book & Manuscript Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800&family=Lora:ital,wght@0,400;0,500;0,600;1,400&family=Playfair+Display:ital,wght@0,600;0,700;1,400&family=Outfit:wght@400;500;600&display=swap" rel="stylesheet">
+  
+  <!-- Individual Stylesheets (Fulfilling specific modular CSS requirements) -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/variables.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/reset.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/layout.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/header.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/sidebar.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/content.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/cards.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/buttons.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/decorations.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/footer.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/responsive.css') }}">
 </head>
 <body>
+
+  <!-- Main Application Container -->
+  <div class="app-container">
     
-    <div class="top-menu">
-        <a href="/analysis">Analysis</a>
-    </div>
+    <!-- Hero Header Section -->
+    <header class="app-header">
+      <!-- Sunrise Sky & Cloud Layers -->
+      <div class="header-meditation-bg">
+        <div class="sunrise-sky"></div>
+        <div class="cloud-layer cloud-1"></div>
+        <div class="cloud-layer cloud-2"></div>
+      </div>
+      
+      <!-- Divine Center Light (Supreme Soul) -->
+      <div class="supreme-soul-light" title="Shiva - Supreme Soul"></div>
+      
+      <!-- Yogi Meditation Silhouette on Right -->
+      <div class="header-yogi-silhouette">
+        <svg viewBox="0 0 100 100" class="yogi-svg">
+          <path d="M50,22 C53.3,22 56,19.3 56,16 C56,12.7 53.3,10 50,10 C46.7,10 44,12.7 44,16 C44,19.3 46.7,22 50,22 Z 
+                   M50,26 C43.5,26 39.5,31.2 38.3,37.3 C37.8,39.8 39.5,42.2 42.1,42.4 C44.5,42.6 46.5,41 46.8,38.7 C47.2,35.7 48.3,33.5 50,33.5 C51.7,33.5 52.8,35.7 53.2,38.7 C53.5,41 55.5,42.6 57.9,42.4 C60.5,42.2 62.2,39.8 61.7,37.3 C60.5,31.2 56.5,26 50,26 Z 
+                   M50,37 C42,37 25,48 25,62 C25,67 29,72 37,73 C42,73.6 45,71.5 50,71.5 C55,71.5 58,73.6 63,73 C71,72 75,67 75,62 C75,48 58,37 50,37 Z" 
+                fill="var(--color-maroon)" opacity="0.15"/>
+        </svg>
+      </div>
+      
+      <!-- Hamburger Menu for Mobile Devices -->
+      <button class="btn-icon" id="btn-menu-toggle" aria-label="Toggle Navigation Sidebar" style="display: none; z-index: var(--z-sticky);">
+        <img src="{{ url_for('static', filename='assets/search.svg') }}" alt="Toggle Menu">
+      </button>
 
-    <h1>Murli Files</h1>
-
-    <button onclick="loadFiles()">
-        Load Files
-    </button>
-    <p id="count"></p>
-
-    <div class="container">
-        <div class="left-panel">
-            <ul id="fileList"></ul>
+      <!-- Logo Area -->
+      <div class="logo-container">
+        <img src="{{ url_for('static', filename='assets/logo.svg') }}" alt="Avyakt Murli Logo" class="logo-icon">
+        <div class="logo-title-group">
+          <h1 class="logo-title">अव्यक्त मुरली</h1>
+          <span class="logo-subtitle">Avyakt Murli &bull; Brahma Kumaris</span>
         </div>
-        <div class="right-panel">
-            <h3 id="fileTitle">
-                Select a file
-            </h3>
-            <!-- View Buttons -->
-            <div class="view-buttons">
-                <button
-                    id="originalBtn"
-                    class="active"
-                    onclick="showOriginal()"
-                >
-                    Original
-                </button>
-                <button
-                    id="extractedBtn"
-                    onclick="showExtracted()"
-                >
-                    Extracted
-                </button>
-            </div>
-            <div id="content">
-                File content will appear here...
-            </div>
+      </div>
+      
+      <!-- Main Application Navigation Menu -->
+      <nav class="header-nav" style="display: flex; gap: var(--space-md); align-items: center; z-index: var(--z-flat); margin-left: auto; margin-right: var(--space-lg);">
+        <a href="/analysis" style="font-family: var(--font-sans); color: var(--color-maroon); text-decoration: none; font-weight: 500; font-size: var(--font-sm); padding: 6px 12px; border-radius: var(--radius-md); transition: all var(--trans-fast);">Word Analysis</a>
+        <a href="/elastic" style="font-family: var(--font-sans); color: var(--color-maroon); text-decoration: none; font-weight: 500; font-size: var(--font-sm); padding: 6px 12px; border-radius: var(--radius-md); transition: all var(--trans-fast);">Elastic Search</a>
+      </nav>
+      
+      <!-- Om Shanti Spiritual Pill Badge -->
+      <div class="om-shanti-badge">
+        <span>Om Shanti</span>
+      </div>
+    </header>
+
+    <!-- App Body (Sidebar + Content Panel) -->
+    <div class="app-body">
+      
+      <!-- Sidebar Navigation -->
+      <aside class="app-sidebar" id="app-sidebar">
+        <!-- Ambient Glowing Decoration -->
+        <div class="glow-ambience glow-amber"></div>
+
+        <!-- Search Box Container -->
+        <div class="sidebar-search-container">
+          <div class="search-box-wrapper">
+            <input type="text" id="search-input" class="search-input" placeholder="Search Murlis (e.g., Silence)..." aria-label="Search Murli Files">
+            <img src="{{ url_for('static', filename='assets/search.svg') }}" alt="Search Icon" class="search-icon">
+          </div>
         </div>
-    </div>
-<script
-    type="module"
-    src="/static/main.js">
-</script>
+
+        <!-- Scrollable Navigation File List -->
+        <nav class="sidebar-nav-container">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: var(--space-sm);">
+            <h2 class="sidebar-section-title" style="margin-bottom: 0; display: inline-flex; align-items: center; gap: 8px;">
+              Murlis List
+              <button onclick="loadFiles()" id="loadFilesBtn" style="background: none; border: none; cursor: pointer; padding: 0; display: inline-flex; align-items: center;" title="Reload Files">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--color-gold)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38l5.67-5.67"/></svg>
+              </button>
+            </h2>
+            <span id="count" style="font-family: var(--font-sans); font-size: var(--font-xs); color: var(--text-secondary); font-weight: 500;"></span>
+          </div>
+          <ul class="file-list-menu" id="fileList">
+            <!-- Dynamically populated by JS -->
+          </ul>
+        </nav>
+
+      </aside>
+
+      <!-- Main Reading Content Area -->
+      <main class="app-content">
+        <!-- Ambient Glowing Decoration -->
+        <div class="glow-ambience glow-shiva-red"></div>
+
+        <!-- Sacred Content Corner Frames -->
+        <div class="sacred-frame">
+          <div class="corner-decorator corner-top-left"></div>
+          <div class="corner-decorator corner-top-right"></div>
+          <div class="corner-decorator corner-bottom-left"></div>
+          <div class="corner-decorator corner-bottom-right"></div>
+        </div>
+
+        <!-- Reading Content Toolbar -->
+        <div class="content-toolbar">
+          <h2 class="toolbar-title" id="fileTitle">Please select a Murli from the sidebar</h2>
+          
+          <div class="toolbar-controls" id="toolbar-controls" style="display: none;">
+            <!-- View Mode Switch (Original / Extracted) -->
+            <div class="btn-toggle">
+              <span class="toggle-option" id="originalBtn" onclick="showOriginal()">Original Text</span>
+              <span class="toggle-option active" id="extractedBtn" onclick="showExtracted()">Extracted Points</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Reading Viewport -->
+        <div class="content-viewport" id="content">
+          <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100%; color: var(--text-secondary); font-family: var(--font-body); gap: var(--space-md);">
+            <img src="{{ url_for('static', filename='assets/lotus.svg') }}" alt="Lotus" style="width: 80px; opacity: 0.2; animation: float 6s ease-in-out infinite;">
+            <p style="font-size: var(--font-lg); font-style: italic;">Welcome to Avyakt Murli Reader</p>
+            <p style="font-size: var(--font-sm); opacity: 0.7;">Select a document from the left list to begin reading.</p>
+          </div>
+        </div>
+      </main>
+
+    </div> <!-- Close app-body -->
+  </div> <!-- Close app-container -->
+
+  <!-- Load Mobile Menu Toggle Style Helper -->
+  <style>
+    /* Inline helper to display hamburger on mobile layout */
+    @media (max-width: 768px) {
+      #btn-menu-toggle {
+        display: inline-flex !important;
+        margin-right: var(--space-md);
+      }
+    }
+  </style>
+
+  <!-- Application Logic Initialization -->
+  <script type="module" src="{{ url_for('static', filename='main.js') }}"></script>
 </body>
 </html>

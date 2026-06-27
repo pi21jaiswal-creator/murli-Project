@@ -1,0 +1,6 @@
+{
+  "summary":  "This artifact contains a comprehensive software migration document detailing the integration of the UI trials prototype into the main Flask application. It defines precise mappings for all templates, stylesheets, scripts, and assets, outlines the merge strategy and risk levels, and provides details on client-side dynamic parsing of Hindi sentences into structured cards.",
+  "updatedAt":  "2026-06-27T06:01:28.137605400Z",
+  "requestFeedback":  true,
+  "userFacing":  true
+}

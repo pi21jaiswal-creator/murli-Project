@@ -1,25 +1,156 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <meta charset="utf-8">
-    <title>Elasticsearch Documents</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Avyakt Murli - Elasticsearch Documents</title>
+  
+  <!-- Modern Premium Book & Manuscript Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800&family=Lora:ital,wght@0,400;0,500;0,600;1,400&family=Playfair+Display:ital,wght@0,600;0,700;1,400&family=Outfit:wght@400;500;600&display=swap" rel="stylesheet">
+  
+  <!-- Individual Stylesheets -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/variables.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/reset.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/layout.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/header.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/content.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/cards.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/buttons.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/decorations.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/footer.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/responsive.css') }}">
+
+  <style>
+    /* Manuscript styles for Elasticsearch Tables */
+    .elastic-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: var(--space-md) 0 var(--space-xl);
+      background-color: var(--bg-tertiary);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+    }
+    .elastic-table th {
+      background-color: var(--bg-secondary);
+      border-bottom: 2px solid var(--border-color);
+      color: var(--color-maroon);
+      font-family: var(--font-serif);
+      font-weight: bold;
+      padding: var(--space-sm) var(--space-md);
+      text-align: left;
+    }
+    .elastic-table td {
+      border-bottom: 1px solid var(--color-cream-outline);
+      padding: var(--space-sm) var(--space-md);
+      color: var(--text-primary);
+      font-family: var(--font-body);
+      font-size: var(--font-sm);
+      line-height: 1.5;
+    }
+    .elastic-file-section {
+      background-color: var(--bg-tertiary);
+      border: 1px solid var(--border-color);
+      padding: var(--space-lg);
+      border-radius: var(--radius-md);
+      margin-bottom: var(--space-xl);
+      box-shadow: var(--shadow-sm);
+    }
+    .elastic-file-section h2 {
+      font-family: var(--font-serif);
+      color: var(--color-maroon);
+      font-size: var(--font-lg);
+      border-bottom: 1px solid var(--border-color);
+      padding-bottom: var(--space-xs);
+      margin-bottom: var(--space-md);
+    }
+    .elastic-table pre {
+      white-space: pre-wrap;
+      font-family: var(--font-body);
+      margin: 0;
+    }
+  </style>
 </head>
 <body>
-    <div class="top-menu">
-        <a href="/">Home</a>
-        <a href="/analysis">Analysis</a>
-    </div>
 
-    <h1>Elasticsearch Documents</h1>
+  <!-- Main Application Container -->
+  <div class="app-container">
+    
+    <!-- Hero Header Section -->
+    <header class="app-header">
+      <!-- Sunrise Sky & Cloud Layers -->
+      <div class="header-meditation-bg">
+        <div class="sunrise-sky"></div>
+        <div class="cloud-layer cloud-1"></div>
+        <div class="cloud-layer cloud-2"></div>
+      </div>
+      
+      <!-- Divine Light -->
+      <div class="supreme-soul-light" title="Shiva - Supreme Soul"></div>
+      
+      <!-- Logo Area -->
+      <div class="logo-container">
+        <img src="{{ url_for('static', filename='assets/logo.svg') }}" alt="Avyakt Murli Logo" class="logo-icon">
+        <div class="logo-title-group">
+          <h1 class="logo-title">अव्यक्त मुरली</h1>
+          <span class="logo-subtitle">Elasticsearch Documents &bull; Brahma Kumaris</span>
+        </div>
+      </div>
+      
+      <!-- Main Application Navigation Menu -->
+      <nav class="header-nav" style="display: flex; gap: var(--space-md); align-items: center; z-index: var(--z-flat); margin-left: auto; margin-right: var(--space-lg);">
+        <a href="/" style="font-family: var(--font-sans); color: var(--color-maroon); text-decoration: none; font-weight: 500; font-size: var(--font-sm); padding: 6px 12px; border-radius: var(--radius-md); transition: all var(--trans-fast);">← Home</a>
+        <a href="/analysis" style="font-family: var(--font-sans); color: var(--color-maroon); text-decoration: none; font-weight: 500; font-size: var(--font-sm); padding: 6px 12px; border-radius: var(--radius-md); transition: all var(--trans-fast);">Word Analysis</a>
+      </nav>
+      
+      <!-- Om Shanti Spiritual Pill Badge -->
+      <div class="om-shanti-badge">
+        <span>Om Shanti</span>
+      </div>
+    </header>
 
-    <button id="refreshBtn">Refresh Documents</button>
-    <p id="status">Click Refresh to load documents from Elasticsearch.</p>
+    <!-- App Body (Content Panel) -->
+    <div class="app-body">
+      
+      <main class="app-content" style="width: 100%;">
+        <!-- Ambient Glowing Decoration -->
+        <div class="glow-ambience glow-shiva-red"></div>
 
-    <div class="elastic-results">
-        <div id="documentsContainer"></div>
-    </div>
+        <!-- Sacred Content Corner Frames -->
+        <div class="sacred-frame">
+          <div class="corner-decorator corner-top-left"></div>
+          <div class="corner-decorator corner-top-right"></div>
+          <div class="corner-decorator corner-bottom-left"></div>
+          <div class="corner-decorator corner-bottom-right"></div>
+        </div>
 
-    <script type="module" src="{{ url_for('static', filename='elastic.js') }}"></script>
+        <!-- Toolbar -->
+        <div class="content-toolbar">
+          <h2 class="toolbar-title" id="toolbar-title">Elasticsearch Index View</h2>
+          <div class="toolbar-controls">
+            <button id="refreshBtn" style="background: var(--grad-maroon); color: var(--bg-primary); border: 1px solid var(--color-gold); font-family: var(--font-sans); font-size: var(--font-sm); font-weight: 500; padding: var(--space-xs) var(--space-lg); border-radius: var(--radius-sm); cursor: pointer; transition: all var(--trans-fast);">
+              Refresh Documents
+            </button>
+          </div>
+        </div>
+
+        <!-- Scrollable Viewport -->
+        <div class="content-viewport" id="content-viewport" style="padding: var(--space-xl) var(--space-2xl);">
+          <div class="reading-container">
+            <p id="status" style="font-family: var(--font-body); font-style: italic; color: var(--text-secondary); margin-bottom: var(--space-md);">
+              Click Refresh to load documents from Elasticsearch.
+            </p>
+            <div id="documentsContainer"></div>
+          </div>
+        </div>
+      </main>
+
+    </div> <!-- Close app-body -->
+  </div> <!-- Close app-container -->
+
+  <script type="module" src="{{ url_for('static', filename='elastic.js') }}"></script>
 </body>
 </html>

@@ -1,0 +1,5 @@
+{
+  "summary":  "This artifact contains a detailed analysis mapping all interactive elements in templates/index.html, templates/analysis.html, and templates/elastic.html. For each element, it defines the HTML tag, ID, Class, JS script, event listeners, API endpoints, and purpose.",
+  "updatedAt":  "2026-06-27T06:19:34.600948700Z",
+  "userFacing":  true
+}

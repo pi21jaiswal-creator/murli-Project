@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 120" width="100%" height="100%">
+  <defs>
+    <!-- Gold gradient for outer frame and rays -->
+    <linearGradient id="goldEmblem" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#E9C98D" />
+      <stop offset="50%" stop-color="#D4A45B" />
+      <stop offset="100%" stop-color="#8C2F39" />
+    </linearGradient>
+  </defs>
+
+  <!-- Oval/Egg shaped Shiva background (The official BK symbol outline) in Maroon -->
+  <ellipse cx="50" cy="60" rx="35" ry="48" fill="#8C2F39" stroke="url(#goldEmblem)" stroke-width="2"/>
+  
+  <!-- Outer decorative gold oval outline -->
+  <ellipse cx="50" cy="60" rx="39" ry="52" fill="none" stroke="url(#goldEmblem)" stroke-width="0.75" stroke-dasharray="2 2" opacity="0.8"/>
+
+  <!-- Glowing rays extending from the Supreme Soul central Bindu -->
+  <g stroke="url(#goldEmblem)" stroke-linecap="round" opacity="0.95">
+    <!-- Center rays -->
+    <line x1="50" y1="36" x2="50" y2="16" stroke-width="1.5"/>
+    <line x1="50" y1="36" x2="50" y2="56" stroke-width="1"/>
+    <line x1="50" y1="36" x2="30" y2="36" stroke-width="1"/>
+    <line x1="50" y1="36" x2="70" y2="36" stroke-width="1"/>
+    
+    <!-- Diagonal rays -->
+    <line x1="50" y1="36" x2="36" y2="22" stroke-width="1"/>
+    <line x1="50" y1="36" x2="64" y2="22" stroke-width="1"/>
+    <line x1="50" y1="36" x2="36" y2="50" stroke-width="0.75"/>
+    <line x1="50" y1="36" x2="64" y2="50" stroke-width="0.75"/>
+    
+    <!-- Sub-rays for fine manuscript feel -->
+    <line x1="50" y1="36" x2="43" y2="18" stroke-width="0.5" opacity="0.8"/>
+    <line x1="50" y1="36" x2="57" y2="18" stroke-width="0.5" opacity="0.8"/>
+    <line x1="50" y1="36" x2="67" y2="28" stroke-width="0.5" opacity="0.8"/>
+    <line x1="50" y1="36" x2="33" y2="28" stroke-width="0.5" opacity="0.8"/>
+  </g>
+
+  <!-- Inner glowing gold aura around the Bindu -->
+  <circle cx="50" cy="36" r="10" fill="radial-gradient(circle, #E9C98D 0%, transparent 80%)" opacity="0.4"/>
+
+  <!-- Supreme Soul Bindu (White point of light) -->
+  <circle cx="50" cy="36" r="3" fill="#FFFDF9" stroke="#E9C98D" stroke-width="1"/>
+  
+  <!-- Subtle label 'Om Shanti' at bottom in gold -->
+  <text x="50" y="96" font-family="'Cinzel', serif" font-size="9" fill="#E9C98D" text-anchor="middle" letter-spacing="1.5" font-weight="bold">OM SHANTI</text>
+</svg>

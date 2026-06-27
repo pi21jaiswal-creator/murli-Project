@@ -1,0 +1,149 @@
+/*
+ * Avyakt Murli - Header Stylesheet (Manuscript Style)
+ * Purpose: Styles the spiritual sunrise header, Hindi logo, cloud layers, yogi silhouette, and Om Shanti badge.
+ */
+
+.app-header {
+  height: 120px;
+  background-color: var(--bg-secondary);
+  border-bottom: 2px solid var(--border-color);
+  padding: 0 var(--space-xl);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  overflow: hidden;
+  position: relative;
+  box-shadow: var(--shadow-sm);
+}
+
+/* Sunrise Sky Background */
+.header-meditation-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: var(--grad-sunrise);
+  z-index: var(--z-negative);
+  pointer-events: none;
+}
+
+.sunrise-sky {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 500px;
+  height: 100%;
+  background: radial-gradient(circle, rgba(233, 201, 141, 0.4) 0%, rgba(254, 230, 210, 0.2) 60%, rgba(0,0,0,0) 100%);
+}
+
+/* Cloud Layers (CSS Drawings) */
+.cloud-layer {
+  position: absolute;
+  background: var(--bg-primary);
+  border-radius: var(--radius-full);
+  opacity: 0.35;
+  filter: blur(10px);
+}
+
+.cloud-1 {
+  width: 250px;
+  height: 60px;
+  bottom: -20px;
+  left: 10%;
+}
+
+.cloud-2 {
+  width: 300px;
+  height: 80px;
+  bottom: -30px;
+  right: 15%;
+}
+
+/* Yogi Silhouette Positioning */
+.header-yogi-silhouette {
+  position: absolute;
+  right: var(--space-xl);
+  bottom: 0;
+  width: 110px;
+  height: 110px;
+  z-index: var(--z-flat);
+  pointer-events: none;
+}
+
+.yogi-svg {
+  width: 100%;
+  height: 100%;
+}
+
+/* Divine Center Light (Supreme Soul) */
+.supreme-soul-light {
+  position: absolute;
+  top: 18px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 10px;
+  height: 10px;
+  background-color: var(--color-white);
+  border-radius: var(--radius-full);
+  box-shadow: 0 0 12px 3px rgba(140, 47, 57, 0.7), 0 0 25px 12px rgba(212, 164, 91, 0.5);
+  z-index: var(--z-flat);
+}
+
+/* Logo Area */
+.logo-container {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  z-index: var(--z-flat);
+}
+
+.logo-icon {
+  width: 48px;
+  height: 48px;
+}
+
+.logo-title-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.logo-title {
+  font-family: var(--font-serif);
+  font-size: var(--font-xl);
+  font-weight: 700;
+  color: var(--color-maroon);
+  letter-spacing: 1px;
+}
+
+.logo-subtitle {
+  font-family: var(--font-sans);
+  font-size: var(--font-xs);
+  color: var(--text-secondary);
+  letter-spacing: 1px;
+  font-weight: 500;
+  margin-top: 2px;
+}
+
+/* Om Shanti Badge */
+.om-shanti-badge {
+  background-color: var(--color-maroon);
+  color: var(--bg-primary);
+  font-family: var(--font-serif);
+  font-weight: 600;
+  font-size: var(--font-xs);
+  letter-spacing: 1.5px;
+  padding: 6px 20px;
+  border-radius: var(--radius-full);
+  border: 1px solid var(--color-gold);
+  box-shadow: var(--shadow-sm);
+  transition: all var(--trans-fast);
+  z-index: var(--z-flat);
+  text-transform: uppercase;
+}
+
+.om-shanti-badge:hover {
+  background-color: var(--color-maroon-hover);
+  transform: translateY(-1px);
+}

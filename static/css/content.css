@@ -1,0 +1,191 @@
+/*
+ * Avyakt Murli - Content Stylesheet (Manuscript Style)
+ * Purpose: Styles the printed reading pane, book typography, paragraph separators, and spiritual section headers.
+ */
+
+.app-content {
+  background-color: var(--bg-primary);
+}
+
+/* Toolbar Style */
+.content-toolbar {
+  background-color: var(--bg-secondary);
+  border-bottom: 1px solid var(--border-color);
+  box-shadow: var(--shadow-sm);
+  z-index: var(--z-sticky);
+}
+
+.toolbar-title {
+  font-family: var(--font-serif);
+  font-size: var(--font-md);
+  color: var(--color-maroon);
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+.toolbar-controls {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+}
+
+/* Reading Viewport Scroll styling */
+.content-viewport {
+  scrollbar-gutter: stable;
+}
+
+/* Reading Header Details */
+.murli-header-container {
+  border-bottom: 2px solid var(--border-color);
+  padding-bottom: var(--space-xl);
+  margin-bottom: var(--space-xl);
+  text-align: center;
+  position: relative;
+}
+
+.murli-title {
+  font-family: var(--font-serif);
+  font-size: var(--font-2xl);
+  font-weight: 700;
+  color: var(--color-maroon);
+  margin-bottom: var(--space-md);
+  line-height: 1.4;
+  letter-spacing: 0.5px;
+}
+
+.murli-meta-info {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: var(--space-xl);
+  font-family: var(--font-sans);
+  font-size: var(--font-sm);
+  color: var(--text-secondary);
+}
+
+.meta-item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+}
+
+/* Murli Body Paragraphs (Book Style) */
+.murli-body-text {
+  font-family: var(--font-body);
+  font-size: var(--font-md);
+  line-height: 1.9;
+  color: var(--text-primary);
+  text-align: justify;
+}
+
+.murli-paragraph {
+  margin-bottom: var(--space-xl);
+  padding-bottom: var(--space-lg);
+  border-bottom: 1px dashed rgba(223, 200, 166, 0.4); /* Paragraph bottom divider */
+  text-indent: 1.5rem;
+}
+
+.murli-paragraph:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+/* Highlight blocks for important spiritual points */
+.essence-block {
+  background-color: rgba(212, 164, 91, 0.05);
+  border-left: 3px solid var(--color-gold);
+  border-top: 1px solid rgba(212, 164, 91, 0.15);
+  border-right: 1px solid rgba(212, 164, 91, 0.15);
+  border-bottom: 1px solid rgba(212, 164, 91, 0.15);
+  padding: var(--space-lg);
+  margin: var(--space-xl) 0;
+  border-radius: var(--radius-md);
+}
+
+.essence-title {
+  font-family: var(--font-serif);
+  font-size: var(--font-md);
+  color: var(--color-maroon);
+  margin-bottom: var(--space-xs);
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+.essence-content {
+  font-family: var(--font-body);
+  font-style: italic;
+  color: var(--text-primary);
+  line-height: 1.7;
+}
+
+/* Heading structures for sections within the Murli */
+.murli-section-header {
+  font-family: var(--font-serif);
+  font-size: var(--font-lg);
+  color: var(--color-maroon);
+  margin: var(--space-xl) 0 var(--space-md);
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+}
+
+.murli-section-header::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, var(--border-color) 0%, transparent 100%);
+}
+
+/* Special Spiritual components like Blessing and Slogan styles */
+.spiritual-highlight-box {
+  background-color: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  padding: var(--space-xl);
+  border-radius: var(--radius-lg);
+  margin-top: var(--space-xl);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+  box-shadow: var(--shadow-sm);
+}
+
+.highlight-box-title {
+  font-family: var(--font-serif);
+  font-size: var(--font-md);
+  color: var(--color-maroon);
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.highlight-box-body {
+  font-family: var(--font-body);
+  font-size: var(--font-md);
+  line-height: 1.8;
+  color: var(--text-primary);
+}
+
+.highlight-box-body::first-line {
+  font-weight: 700;
+  color: var(--color-maroon);
+}
+
+/* Points for Dharna List Style */
+.dharna-list {
+  list-style-type: decimal;
+  padding-left: var(--space-lg);
+  color: var(--text-primary);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+  margin-top: var(--space-sm);
+}
+
+.dharna-list li {
+  line-height: 1.7;
+  font-size: var(--font-md);
+  font-family: var(--font-body);
+}
+
