@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Avyakt Murli - Morning Nectar of Peace</title>
+  
+  <!-- Modern Premium Book & Manuscript Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800&family=Lora:ital,wght@0,400;0,500;0,600;1,400&family=Playfair+Display:ital,wght@0,600;0,700;1,400&family=Outfit:wght@400;500;600&display=swap" rel="stylesheet">
+  
+  <!-- Individual Stylesheets (Fulfilling specific modular CSS requirements) -->
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/header.css">
+  <link rel="stylesheet" href="css/sidebar.css">
+  <link rel="stylesheet" href="css/content.css">
+  <link rel="stylesheet" href="css/cards.css">
+  <link rel="stylesheet" href="css/buttons.css">
+  <link rel="stylesheet" href="css/decorations.css">
+  <link rel="stylesheet" href="css/footer.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+  <!-- Main Application Container -->
+  <div class="app-container">
+    
+    <!-- Hero Header Section -->
+    <header class="app-header">
+      <!-- Sunrise Sky & Cloud Layers -->
+      <div class="header-meditation-bg">
+        <div class="sunrise-sky"></div>
+        <div class="cloud-layer cloud-1"></div>
+        <div class="cloud-layer cloud-2"></div>
+      </div>
+      
+      <!-- Divine Center Light (Supreme Soul) -->
+      <div class="supreme-soul-light" title="Shiva - Supreme Soul"></div>
+      
+      <!-- Yogi Meditation Silhouette on Right -->
+      <div class="header-yogi-silhouette">
+        <svg viewBox="0 0 100 100" class="yogi-svg">
+          <path d="M50,22 C53.3,22 56,19.3 56,16 C56,12.7 53.3,10 50,10 C46.7,10 44,12.7 44,16 C44,19.3 46.7,22 50,22 Z 
+                   M50,26 C43.5,26 39.5,31.2 38.3,37.3 C37.8,39.8 39.5,42.2 42.1,42.4 C44.5,42.6 46.5,41 46.8,38.7 C47.2,35.7 48.3,33.5 50,33.5 C51.7,33.5 52.8,35.7 53.2,38.7 C53.5,41 55.5,42.6 57.9,42.4 C60.5,42.2 62.2,39.8 61.7,37.3 C60.5,31.2 56.5,26 50,26 Z 
+                   M50,37 C42,37 25,48 25,62 C25,67 29,72 37,73 C42,73.6 45,71.5 50,71.5 C55,71.5 58,73.6 63,73 C71,72 75,67 75,62 C75,48 58,37 50,37 Z" 
+                fill="var(--color-maroon)" opacity="0.15"/>
+        </svg>
+      </div>
+      
+      <!-- Hamburger Menu for Mobile Devices -->
+      <button class="btn-icon" id="btn-menu-toggle" aria-label="Toggle Navigation Sidebar" style="display: none; z-index: var(--z-sticky);">
+        <img src="assets/search.svg" alt="Toggle Menu">
+      </button>
+
+      <!-- Logo Area -->
+      <div class="logo-container">
+        <img src="assets/logo.svg" alt="Avyakt Murli Logo" class="logo-icon">
+        <div class="logo-title-group">
+          <h1 class="logo-title">अव्यक्त मुरली</h1>
+          <span class="logo-subtitle">Avyakt Murli &bull; Brahma Kumaris</span>
+        </div>
+      </div>
+      
+      <!-- Om Shanti Spiritual Pill Badge -->
+      <div class="om-shanti-badge">
+        <span>Om Shanti</span>
+      </div>
+    </header>
+
+    <!-- App Body (Sidebar + Content Panel) -->
+    <div class="app-body">
+      
+      <!-- Sidebar Navigation -->
+      <aside class="app-sidebar" id="app-sidebar">
+        <!-- Ambient Glowing Decoration -->
+        <div class="glow-ambience glow-amber"></div>
+
+        <!-- Search Box Container -->
+        <div class="sidebar-search-container">
+          <div class="search-box-wrapper">
+            <input type="text" id="search-input" class="search-input" placeholder="Search Murlis (e.g., Silence)..." aria-label="Search Murli Files">
+            <img src="assets/search.svg" alt="Search Icon" class="search-icon">
+          </div>
+        </div>
+
+        <!-- Scrollable Navigation File List -->
+        <nav class="sidebar-nav-container">
+          <h2 class="sidebar-section-title">Murlis List</h2>
+          <ul class="file-list-menu" id="sidebar-file-list">
+            <!-- Dynamically populated by JS/app.js -->
+          </ul>
+        </nav>
+
+        <!-- Spiritual Quote Area -->
+        <div class="sidebar-quote-container">
+          <div class="sidebar-quote-card">
+            <p class="sidebar-quote-text" id="sidebar-quote-text">
+              “Consider yourself to be a soul and remember the Father. This is the source of all spiritual power.”
+            </p>
+            <span class="sidebar-quote-author" id="sidebar-quote-author">BapDada</span>
+          </div>
+        </div>
+      </aside>
+
+      <!-- Main Reading Content Area -->
+      <main class="app-content">
+        <!-- Ambient Glowing Decoration -->
+        <div class="glow-ambience glow-shiva-red"></div>
+
+        <!-- Sacred Content Corner Frames -->
+        <div class="sacred-frame">
+          <div class="corner-decorator corner-top-left"></div>
+          <div class="corner-decorator corner-top-right"></div>
+          <div class="corner-decorator corner-bottom-left"></div>
+          <div class="corner-decorator corner-bottom-right"></div>
+        </div>
+
+        <!-- Reading Content Toolbar -->
+        <div class="content-toolbar">
+          <h2 class="toolbar-title" id="toolbar-title">Loading Murli...</h2>
+          
+          <div class="toolbar-controls">
+            <!-- View Mode Switch (Original / Extracted) -->
+            <div class="btn-toggle">
+              <span class="toggle-option" id="toggle-view-original">Original Text</span>
+              <span class="toggle-option active" id="toggle-view-extracted">Extracted Points</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Reading Viewport -->
+        <div class="content-viewport" id="content-viewport">
+          <!-- Dynamically populated by JS/app.js -->
+        </div>
+      </main>
+
+    </div> <!-- Close app-body -->
+  </div> <!-- Close app-container -->
+
+  <!-- Load Mobile Menu Toggle Style Helper -->
+  <style>
+    /* Inline helper to display hamburger on mobile layout */
+    @media (max-width: 768px) {
+      #btn-menu-toggle {
+        display: inline-flex !important;
+        margin-right: var(--space-md);
+      }
+    }
+  </style>
+
+  <!-- Application Logic Initialization -->
+  <script src="js/app.js"></script>
+</body>
+</html>

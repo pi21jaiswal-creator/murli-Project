@@ -1,0 +1,132 @@
+/*
+ * Avyakt Murli - Buttons Stylesheet (Manuscript Style)
+ * Purpose: Styles manuscript-themed buttons, active states, cream outlines, and toggles.
+ */
+
+/* General Button Base */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-sm);
+  padding: 8px 24px;
+  font-family: var(--font-serif);
+  font-size: var(--font-sm);
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-color);
+  transition: all var(--trans-normal);
+  white-space: nowrap;
+  user-select: none;
+}
+
+/* Primary Button - Maroon Active Button */
+.btn-primary {
+  background-color: var(--color-maroon);
+  color: var(--bg-primary);
+  border-color: var(--color-gold);
+  box-shadow: var(--shadow-sm);
+}
+
+.btn-primary:hover:not(:disabled) {
+  background-color: var(--color-maroon-hover);
+  border-color: var(--color-gold-light);
+  transform: translateY(-1px);
+}
+
+.btn-primary:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+/* Secondary Button - Cream Outline / Gold Border */
+.btn-secondary {
+  background-color: var(--bg-secondary);
+  border-color: var(--border-color);
+  color: var(--color-maroon);
+  box-shadow: var(--shadow-sm);
+}
+
+.btn-secondary:hover:not(:disabled) {
+  background-color: var(--bg-primary);
+  border-color: var(--color-gold);
+  color: var(--color-maroon-hover);
+  transform: translateY(-1px);
+}
+
+.btn-secondary:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+/* Circular Icon-Only Buttons (Toolbar) */
+.btn-icon {
+  width: 38px;
+  height: 38px;
+  border-radius: var(--radius-md); /* Squared with small roundness, typical of book frames */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--bg-tertiary);
+  border: 1px solid var(--border-color);
+  color: var(--text-secondary);
+  transition: all var(--trans-fast);
+  padding: 0;
+  box-shadow: var(--shadow-sm);
+}
+
+.btn-icon:hover:not(:disabled) {
+  color: var(--color-maroon);
+  border-color: var(--color-gold);
+  background-color: var(--bg-secondary);
+}
+
+.btn-icon:active:not(:disabled) {
+  transform: scale(0.97);
+}
+
+.btn-icon img {
+  width: 16px;
+  height: 16px;
+}
+
+/* Toggle Switch / Tab togglers (Original Text / Extracted Points) */
+.btn-toggle {
+  background-color: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  color: var(--text-secondary);
+  position: relative;
+  display: flex;
+  padding: 3px;
+  border-radius: var(--radius-md);
+}
+
+.toggle-option {
+  padding: 6px 18px;
+  font-family: var(--font-serif);
+  font-size: var(--font-xs);
+  font-weight: 600;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: all var(--trans-fast);
+}
+
+/* Active view mode = solid maroon with cream text and gold border */
+.toggle-option.active {
+  background: var(--color-maroon);
+  color: var(--bg-primary);
+  border: 1px solid var(--color-gold);
+  box-shadow: var(--shadow-sm);
+}
+
+/* Disabled States */
+.btn:disabled,
+.btn-icon:disabled,
+.toggle-option:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+  transform: none !important;
+  box-shadow: none !important;
+  background: var(--bg-secondary) !important;
+  border-color: var(--border-color) !important;
+  color: var(--text-muted) !important;
+}

@@ -1,13 +1,10 @@
 ﻿from pathlib import Path
 import argparse
 
-import urllib3
-from elasticsearch import Elasticsearch
 from elasticsearch.helpers import bulk
 
 from corps import Corps
-
-urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
+from es_client import create_elasticsearch_client
 
 DIRECTORY_PATH = r"G:\My Drive\Obsidian Daily Murli\Daily Murli"
 DEFAULT_INDEX = "murli"
@@ -63,11 +60,7 @@ def main():
         print("  ", file.name)
 
     print("\n2. Connecting to Elasticsearch...")
-    es = Elasticsearch(
-        "https://localhost:9200",
-        basic_auth=("elastic", "2MHzCYmiPx*m2j=NOG7l"),
-        verify_certs=False,
-    )
+    es = create_elasticsearch_client()
     print("Connected.")
 
     index_exists = es.indices.exists(index=args.index_name)

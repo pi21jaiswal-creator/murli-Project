@@ -1,0 +1,114 @@
+/*
+ * Avyakt Murli - Decorations Stylesheet (Manuscript Style)
+ * Purpose: Styles handcrafted borders, corner decorations, watermark lotus details, and dividers.
+ */
+
+/* Subtle Sun Rays / Soft Paper Ambient Underlays */
+.glow-ambience {
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  border-radius: var(--radius-full);
+  pointer-events: none;
+  filter: blur(120px);
+  z-index: var(--z-negative);
+  opacity: 0.12;
+}
+
+.glow-amber {
+  top: 5%;
+  right: 5%;
+  background: radial-gradient(circle, var(--color-gold-light) 0%, transparent 70%);
+}
+
+.glow-shiva-red {
+  bottom: 5%;
+  left: 5%;
+  background: radial-gradient(circle, rgba(140, 47, 57, 0.1) 0%, transparent 70%);
+}
+
+/* Sacred Corner Framings (Simulating printed parchment border lines) */
+.sacred-frame {
+  position: absolute;
+  top: 24px;
+  bottom: 24px;
+  left: 24px;
+  right: 24px;
+  border: 1px solid rgba(223, 200, 166, 0.35); /* Soft gold inner border line */
+  pointer-events: none;
+  z-index: var(--z-base);
+}
+
+.corner-decorator {
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  border: 2px solid var(--color-gold);
+  pointer-events: none;
+}
+
+.corner-top-left {
+  top: -1px;
+  left: -1px;
+  border-right: none;
+  border-bottom: none;
+}
+
+.corner-top-right {
+  top: -1px;
+  right: -1px;
+  border-left: none;
+  border-bottom: none;
+}
+
+.corner-bottom-left {
+  bottom: -1px;
+  left: -1px;
+  border-right: none;
+  border-top: none;
+}
+
+.corner-bottom-right {
+  bottom: -1px;
+  right: -1px;
+  border-left: none;
+  border-top: none;
+}
+
+/* Static Watermark Lotus (Printed book design - No animation) */
+.floating-lotus-bg {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 220px;
+  height: 220px;
+  opacity: 0.025; /* Highly transparent watermark */
+  pointer-events: none;
+  z-index: var(--z-negative);
+}
+
+/* Symmetrical Manuscript Divider */
+.spiritual-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: var(--space-lg) 0;
+  width: 100%;
+}
+
+.spiritual-divider::before,
+.spiritual-divider::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, transparent 0%, var(--color-gold) 50%, transparent 100%);
+  opacity: 0.5;
+}
+
+.spiritual-divider-icon {
+  width: 28px;
+  height: 28px;
+  margin: 0 var(--space-lg);
+  opacity: 0.65;
+  filter: sepia(0.5); /* Antique printing look */
+}

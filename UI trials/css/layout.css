@@ -1,0 +1,130 @@
+/*
+ * Avyakt Murli - Layout stylesheet
+ * Purpose: Manages structural layouts, grids, flex containers, and responsive skeleton boxes.
+ * Component styling (colors, borders, typography) is defined in respective stylesheets.
+ */
+
+/* Main App Wrapper */
+.app-container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+  position: relative;
+}
+
+/* App Header (Hero Banner) */
+.app-header {
+  flex-shrink: 0;
+  width: 100%;
+  position: relative;
+  z-index: var(--z-sticky);
+}
+
+/* App Main Body (Sidebar + Content Area) */
+.app-body {
+  display: flex;
+  flex: 1;
+  width: 100%;
+  height: calc(100vh - 120px); /* 120px is header height, adjusted in responsive */
+  overflow: hidden;
+  position: relative;
+}
+
+/* Sidebar Layout */
+.app-sidebar {
+  flex-shrink: 0;
+  width: 350px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  z-index: var(--z-raised);
+}
+
+.sidebar-search-container {
+  padding: var(--space-md);
+  flex-shrink: 0;
+}
+
+.sidebar-nav-container {
+  flex: 1;
+  overflow-y: auto;
+  padding: 0 var(--space-md) var(--space-md);
+}
+
+.sidebar-quote-container {
+  padding: var(--space-md);
+  flex-shrink: 0;
+  margin-top: auto;
+}
+
+/* Content Area Layout */
+.app-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow: hidden;
+  position: relative;
+  z-index: var(--z-base);
+}
+
+/* Toolbar - Top of Content Area */
+.content-toolbar {
+  height: 60px;
+  padding: 0 var(--space-xl);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-shrink: 0;
+}
+
+/* Scrollable Viewport for Murli Content */
+.content-viewport {
+  flex: 1;
+  overflow-y: auto;
+  padding: var(--space-xl) var(--space-2xl);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xl);
+}
+
+/* Reading container for text centering and readability */
+.reading-container {
+  max-width: 800px;
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
+}
+
+/* Cards Grid Layout within Content */
+.cards-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: var(--space-lg);
+  margin-top: var(--space-xl);
+}
+
+/* Footer Container */
+.app-footer {
+  margin-top: auto;
+  padding: var(--space-2xl) 0 var(--space-lg);
+  width: 100%;
+  text-align: center;
+}
+
+/* Extracted Points Panel Layout */
+.extracted-points-container {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
+}
+
+.extracted-points-container .cards-row {
+  margin-top: 0;
+}
+

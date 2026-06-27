@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100%" height="100%">
+  <defs>
+    <!-- Gold gradient for premium lotus look -->
+    <linearGradient id="lotusGold" x1="0%" y1="100%" x2="0%" y2="0%">
+      <stop offset="0%" stop-color="#aa7c11" />
+      <stop offset="50%" stop-color="#d4af37" />
+      <stop offset="100%" stop-color="#f3e5ab" />
+    </linearGradient>
+  </defs>
+  
+  <g fill="none" stroke="url(#lotusGold)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <!-- Center bud/petal -->
+    <path d="M50 25 C45 40 45 65 50 75 C55 65 55 40 50 25 Z" fill="rgba(212, 175, 55, 0.05)"/>
+    
+    <!-- Left Inner Petal -->
+    <path d="M50 35 C38 45 35 60 43 72 C48 65 49 50 50 35 Z" fill="rgba(212, 175, 55, 0.03)"/>
+    
+    <!-- Right Inner Petal -->
+    <path d="M50 35 C62 45 65 60 57 72 C52 65 51 50 50 35 Z" fill="rgba(212, 175, 55, 0.03)"/>
+    
+    <!-- Left Mid Petal -->
+    <path d="M47 43 C28 50 24 67 36 76 C42 68 44 57 47 43 Z" />
+    
+    <!-- Right Mid Petal -->
+    <path d="M53 43 C72 50 76 67 64 76 C58 68 56 57 53 43 Z" />
+    
+    <!-- Left Outer Petal (Lower) -->
+    <path d="M44 54 C20 60 16 75 30 80 C38 75 41 66 44 54 Z" />
+    
+    <!-- Right Outer Petal (Lower) -->
+    <path d="M56 54 C80 60 84 75 70 80 C62 75 59 66 56 54 Z" />
+    
+    <!-- Bottom Base Leaves/Support -->
+    <path d="M35 80 C42 84 45 84 50 84 C55 84 58 84 65 80" stroke-width="1.5"/>
+    <path d="M42 84 C46 88 48 89 50 89 C52 89 54 88 58 84" stroke-width="1.5"/>
+  </g>
+</svg>

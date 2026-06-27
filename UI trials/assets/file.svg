@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="100%" height="100%">
+  <defs>
+    <linearGradient id="fileGold" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f3e5ab" />
+      <stop offset="100%" stop-color="#d4af37" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Outer File Path with Folded Corner -->
+  <path d="M14 2H6C4.9 2 4 2.9 4 4V20C4 21.1 4.9 22 6 22H18C19.1 22 20 21.1 20 20V8L14 2Z" 
+        fill="none" 
+        stroke="url(#fileGold)" 
+        stroke-width="1.8" 
+        stroke-linecap="round" 
+        stroke-linejoin="round"/>
+        
+  <!-- Folded Corner Sheet details -->
+  <path d="M14 2V8H20" 
+        fill="none" 
+        stroke="url(#fileGold)" 
+        stroke-width="1.8" 
+        stroke-linecap="round" 
+        stroke-linejoin="round"/>
+        
+  <!-- Text lines indicator inside file -->
+  <line x1="8" y1="13" x2="16" y2="13" stroke="url(#fileGold)" stroke-width="1.5" stroke-linecap="round" opacity="0.8"/>
+  <line x1="8" y1="17" x2="14" y2="17" stroke="url(#fileGold)" stroke-width="1.5" stroke-linecap="round" opacity="0.8"/>
+</svg>

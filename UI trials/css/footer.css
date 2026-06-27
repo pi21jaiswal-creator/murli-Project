@@ -1,0 +1,42 @@
+/*
+ * Avyakt Murli - Footer Stylesheet (Manuscript Style)
+ * Purpose: Styles the manuscript credit and closing blessing sections.
+ */
+
+.app-footer {
+  border-top: 1px solid var(--border-color);
+  margin-top: var(--space-2xl);
+  padding: var(--space-xl) 0 var(--space-md);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+.footer-quote {
+  font-family: var(--font-serif);
+  font-size: var(--font-sm);
+  color: var(--color-maroon);
+  font-style: italic;
+  letter-spacing: 0.5px;
+  max-width: 550px;
+  line-height: 1.6;
+}
+
+.footer-credits {
+  font-family: var(--font-sans);
+  font-size: 11px;
+  color: var(--text-muted);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.footer-benediction {
+  font-family: var(--font-serif);
+  font-size: var(--font-sm);
+  color: var(--color-maroon);
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-top: 2px;
+}

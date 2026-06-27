@@ -1,16 +1,9 @@
 from flask import Flask, jsonify, render_template
-from elasticsearch import Elasticsearch
+from es_client import create_elasticsearch_client
 
 app = Flask(__name__)
 
-es = Elasticsearch(
-    "https://localhost:9200",
-    basic_auth=(
-        "elastic",
-        "2MHzCYmiPx*m2j=NOG7l"
-    ),
-    verify_certs=False
-)
+es = create_elasticsearch_client()
 
 
 @app.route("/")

@@ -1,0 +1,130 @@
+/*
+ * Avyakt Murli - Responsive Breakpoints Stylesheet
+ * Purpose: Customizes structural widths, spacing, layouts, and visibility for desktop, laptop, tablet, and mobile screens.
+ */
+
+/* ==========================================================================
+   1. Laptop Viewports (max-width: 1200px)
+   ========================================================================== */
+@media (max-width: 1200px) {
+  .app-sidebar {
+    width: 300px; /* Slimmer sidebar */
+  }
+  
+  .content-viewport {
+    padding: var(--space-xl) var(--space-xl);
+  }
+}
+
+/* ==========================================================================
+   2. Tablet Viewports (max-width: 992px)
+   ========================================================================== */
+@media (max-width: 992px) {
+  .app-header {
+    height: 100px;
+    padding: 0 var(--space-lg);
+  }
+  
+  .app-body {
+    height: calc(100vh - 100px);
+  }
+  
+  .app-sidebar {
+    width: 280px;
+  }
+  
+  .content-viewport {
+    padding: var(--space-lg) var(--space-md);
+  }
+  
+  .murli-title {
+    font-size: var(--font-2xl);
+  }
+  
+  .cards-row {
+    grid-template-columns: 1fr; /* Stack cards vertically */
+    gap: var(--space-md);
+  }
+}
+
+/* ==========================================================================
+   3. Mobile Viewports (max-width: 768px)
+   ========================================================================== */
+@media (max-width: 768px) {
+  .app-header {
+    height: 80px;
+    padding: 0 var(--space-md);
+  }
+  
+  .logo-title {
+    font-size: var(--font-xl);
+    letter-spacing: 1px;
+  }
+  
+  .logo-subtitle {
+    font-size: 9px;
+    letter-spacing: 1.5px;
+  }
+  
+  .logo-icon {
+    width: 36px;
+    height: 36px;
+  }
+  
+  .om-shanti-badge {
+    padding: var(--space-xs) var(--space-md);
+    font-size: var(--font-xs);
+  }
+
+  .app-body {
+    height: calc(100vh - 80px);
+    position: relative;
+  }
+  
+  /* Make sidebar a slide-in overlay on mobile */
+  .app-sidebar {
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 290px;
+    height: 100%;
+    transition: left var(--trans-slow);
+    box-shadow: var(--shadow-lg);
+    background-color: var(--bg-secondary);
+  }
+  
+  .app-sidebar.active {
+    left: 0;
+  }
+
+  .content-toolbar {
+    padding: 0 var(--space-md);
+  }
+  
+  .content-viewport {
+    padding: var(--space-md);
+  }
+  
+  .murli-title {
+    font-size: var(--font-xl);
+  }
+  
+  .murli-meta-info {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-xs);
+  }
+}
+
+/* ==========================================================================
+   4. Small Mobile Devices (max-width: 480px)
+   ========================================================================== */
+@media (max-width: 480px) {
+  .app-sidebar {
+    width: 100%; /* Take full width when drawer is active on tiny screens */
+  }
+  
+  .om-shanti-badge {
+    display: none; /* Hide badge on very small screens to avoid header crowding */
+  }
+}
